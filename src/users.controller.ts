@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Get,
-  Param,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common'
+import { Controller, Get, Param, NotFoundException } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { User } from './user.model'
 
@@ -22,6 +16,6 @@ export class UsersController {
     const user = await this.usersService.findOne(params.id)
 
     if (user) return user
-    throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
+    throw new NotFoundException()
   }
 }

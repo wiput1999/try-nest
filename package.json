@@ -1,8 +1,8 @@
 {
-    "name": "try-nest",
+    "name": "codebuddy-api",
     "version": "0.0.1",
     "description": "",
-    "author": "Wiput Pootong",
+    "author": "",
     "license": "MIT",
     "scripts": {
         "build": "tsc -p tsconfig.build.json",

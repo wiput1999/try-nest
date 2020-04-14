@@ -62,7 +62,10 @@ export class UsersService {
       const token = await this.signToken(userData)
       return new UserLoginResponseDto(userData, token)
     } catch (err) {
-      if (err.original.constraint === 'user_email_key') {
+      if (
+        err.original.constraint === 'user_email_key' ||
+        err.name === 'SequelizeUniqueConstraintError'
+      ) {
         throw new HttpException(
           `User with email '${err.errors[0].value}' already exists`,
           HttpStatus.CONFLICT
